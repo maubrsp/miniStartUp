@@ -6,7 +6,7 @@ The purpose of this project is very simple:
 
 - Load contents by stages, directed the proposals/intentions of use and capacity of the devices;
 
-The code is very simple and minimalist just to validate the concept. The idea is implement this concept in best practice environments that are plugged into important and growing issues in the universe of progressive applications.
+The code is very simple and minimalist just to validate the concept. The idea is implement this concept in best practice environments that are plugged into important/growing issues in the universe of web and progressive applications.
 
 how to:
 
@@ -62,3 +62,4 @@ how to:
     var application = new app();
     console.log(application.test());
   };
+
