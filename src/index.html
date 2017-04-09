@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+  <title>{miniStartUp</title>
+  <meta name="description" content="{miniStartUp">
+  <meta name="author" content="mau.brsp@gmail.com">
+  <style>
+    html{
+      width: 100%;
+      height: 100%;
+    }
+    body {
+      font-family: Monospace;
+      background: rgb(0,0,0);
+      margin: 0px;
+      padding: 0px;
+      overflow: hidden;
+      width: 100%; 
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body onload="bodyLoaded()">
+  <script src="./deviceStartUp.js"></script>
+  <script>
+  var _deviceStartUp;
+  function bodyLoaded(){
+      _deviceStartUp = new deviceStartUp(onSplashReady , 
+                                            commonsRequiresReady , 
+                                            clientRequiresReady , 
+                                            onUserSelected , 
+                                            onAppReady , 
+                                            ["./apps/utils/globals.js"]);
+  }
+
+  function onSplashReady(){
+    console.log('onSplashReady: ' + _deviceStartUp.splahsLoadeds() );
+  };
+
+  function commonsRequiresReady(){
+    console.log('commonsRequiresReady: ' + _deviceStartUp.commonsLoaded() );
+
+  };
+
+  function clientRequiresReady(){
+    console.log('clientRequiresReady: ' + _deviceStartUp.clientDataLoaded() );
+
+  };
+
+  function onUserSelected(){
+    console.log('onUserSelected: ' + _deviceStartUp.userHasSelect() );
+
+  };
+
+  function onAppReady(){
+    console.log('onAppReady <<< needs destroy' );
+    // add refs in globals
+
+    _deviceStartUp.destroy();
+    var application = new app();
+    console.log(application.test())
+  };
+
+  </script>
+  <header id="header" role="banner">
+    <div id="start_menu" class="start_menu_area">
+      <div class="menu_area_gradient_bkg"></div>
+      <div id="logo" class="logo_header">[ mau.brsp(*) ]</div>
+      <div id="info" class="selector_info">
+        <h2>Choose your device and quality to continue.</h2>
+      </div>
+      <div id="device" class="selected_device">
+        <img id="device_img" class="selected_device_img"></img>
+      </div>
+      <ul id="devices" class="list_devices">
+        <li><div><img class="device_icon_list icon_desktop" ></img></div></li>
+        <li><div><img class="device_icon_list icon_tablet" ></img></div></li>
+        <li><div><img class="device_icon_list icon_phone" ></img></div></li>
+        <li><div><img class="device_icon_list icon_tv" ></img></div></li>
+      </ul>
+      <div class="icon_start_options"><div class="icon_start_options_container">
+          <div id="go_low" class="go_bt">low</div><h1 id="device_selected_title"> </h1> <div class="go_bt" id="go_hights">high</div>
+      </div></div>
+    </div>
+    <div class="menu_area_gradient_bkg"></div>
+    <div class="loader">loading...</div>
+
+  </header>
+  <main></main>
+  <footer></footer>
+</body></html>
